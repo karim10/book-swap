@@ -1,18 +1,17 @@
 <?php
-// src/AppBundle/Entity/User.php
+// src/AppBundle/Entity/Book.php
 
 namespace AppBundle\Entity;
 
-use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * User
  *
- * @ORM\Table("users")
+ * @ORM\Table("books")
  * @ORM\Entity
  */
-class User extends BaseUser
+class Book
 {
     /**
      * @var integer
@@ -24,11 +23,10 @@ class User extends BaseUser
     protected $id;
 
     /**
-     * Many Users have Many Books.
-     * @ORM\ManyToMany(targetEntity="Book", inversedBy="users")
-     * @ORM\JoinTable(name="users_books")
+     * Many Groups have Many Users.
+     * @ORM\ManyToMany(targetEntity="User", mappedBy="books")
      */
-    private $books;
+    protected $users;
 
 
     /**
